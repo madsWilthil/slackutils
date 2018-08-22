@@ -2,7 +2,7 @@
 """Various methods for getting users
 """
 
-from _shared import _get_users, _api_call
+from ._shared import _get_users, _api_call
 
 def get(id=None, email=None, **kwargs):
     """Looks up a user by his/her email. 
@@ -10,14 +10,14 @@ def get(id=None, email=None, **kwargs):
     """
     ### If the ID is specified, get that user directly
     if id:
-        return _api_call('users.info', user=id).get('user')
+        return _api_call('users.info', user=id, **kwargs).get('user')
     
     ### Else, loop trough all users and get the right one
     if email:
         match = email
         field_match = 'email'
     
-    for user in get_users(kwargs):
+    for user in _get_users(**kwargs):
         if user.get('profile', {}).get(field_match) == match:
             return user
     

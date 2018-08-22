@@ -13,12 +13,12 @@ def _api_call(method, **kwargs):
         token = os.environ.get('SLACK_API_TOKEN')
 
     sc = slackclient.SlackClient(token)
-    return sc.api_calls
+    return sc.api_call(method, **kwargs)
 
 def _get_conversations(**kwargs):
     """Returns all conversations the user has access to."""
-    return _api_call('conversations.list', types='public_channel,private_channel,mpim,im', kwargs).get('channels')
+    return _api_call('conversations.list', types='public_channel,private_channel,mpim,im', **kwargs).get('channels')
 
 def _get_users(**kwargs):
     """Returns all users in the slack team"""
-    return _api_call('users.list', kwargs).get('members')
+    return _api_call('users.list', **kwargs).get('members')

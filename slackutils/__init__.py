@@ -1,1 +1,1 @@
-__all__ = ['conversations', 'users']
+__all__ = ['_shared', 'conversations', 'users']
