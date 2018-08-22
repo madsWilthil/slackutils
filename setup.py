@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="slackutils",
-    version="0.0.1",
+    version="0.0.2",
     author="Mads Wilthil",
     author_email="mads.wilthil@gmail.com",
     description="A small library to simplify slack web API calls",
