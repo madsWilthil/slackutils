@@ -31,7 +31,7 @@ Simplify looking up users and channels by other parameters than their ID
 import slackutils
 marketing_channel = slackutils.conversations.get(name='marketing')
 
-from slackutils import users
-dave = users.get(email='dave@example.com')
+from slackutils import get_user
+dave = get_user(email='dave@example.com')
 
 ```
